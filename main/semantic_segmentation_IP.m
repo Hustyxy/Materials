@@ -170,8 +170,7 @@ for i_all = 1:num_scans-1
             seeds{i} = [];
         end
     end
-    % % hold off
-    %% 
+
         IDX = DBSCAN_fin(seeds,data.Location,0.2,5);
         data_colors = zeros(data.Count, 3);
         org_lb_set = unique(IDX);
@@ -184,7 +183,7 @@ for i_all = 1:num_scans-1
             data_colors(points_idx_this_semantic, :) = repmat(semantic_color, numel(points_idx_this_semantic), 1);
         end
         data.Color = uint8(data_colors);
-    %% 
+
         [pc_lb, pc_id] = readLabel(label_path);
         [pc_id_set, num_each_id] = unique(pc_id);
         num_id = length(pc_id_set);
